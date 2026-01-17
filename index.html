@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torres del Poeta - Residencia Premium en Av. Arce | La Paz, Bolivia</title>
+    <meta name="description"
+        content="Residencia de 171 m² en Torres del Poeta, zona de embajadas. 4 dormitorios, 4 baños, calefacción, seguridad permanente. Ideal para diplomáticos y ejecutivos.">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C5A059',
+                        'primary-dark': '#A8864A',
+                        navy: {
+                            900: '#0A0F1D',
+                            800: '#141C2F',
+                            700: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+            /* Fondo negro para evitar flashes blancos */
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            /* Transición muy suave */
+            z-index: 1;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 16px;
+        }
+
+        .carousel-arrow.next {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #C5A059;
+            transform: scale(1.2);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar for gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* WhatsApp Button Animation */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .whatsapp-btn {
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            animation: none;
+            transform: scale(1.1);
+        }
+
+        /* Elegant divider */
+        .elegant-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C5A059, transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-display text-xl font-bold tracking-tight">POETA</span>
+                <div class="w-2 h-2 rounded-full bg-primary"></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex items-center gap-2 text-sm">
+                    <button class="opacity-60 hover:opacity-100 transition-opacity">EN</button>
+                    <span class="text-slate-300">|</span>
+                    <button class="font-semibold">ES</button>
+                </div>
+                <a href="tel:+59172004767"
+                    class="hidden md:flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors">
+                    <span class="material-symbols-outlined text-lg">call</span>
+                    +591 720 04767
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-14">
+
+        <!-- Hero Carousel Section -->
+        <section class="relative">
+            <div class="carousel h-[75vh] min-h-[550px] max-h-[750px]">
+                <div class="carousel-inner h-full" id="carouselInner">
+                    <!-- Slide 1 - Vista Nocturna -->
+                    <div class="carousel-slide active">
+                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
+                            loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD1.jpg" alt="Habitación principal con luz natural y calefacción"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD2.jpg" alt="Habitación con baño en-suite" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD3.jpg" alt="Habitación con closet y vista a la ciudad" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD5.jpg" alt="Habitación amplia con ventanal" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD6.jpg" alt="Dormitorio con closet empotrado" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                    <!-- Slide 7 -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/HD4.jpg" alt="Baño moderno con acabados premium" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-arrow prev" onclick="prevSlide()">
+                    <span class="material-symbols-outlined text-slate-700">chevron_left</span>
+                </button>
+                <button class="carousel-arrow next" onclick="nextSlide()">
+                    <span class="material-symbols-outlined text-slate-700">chevron_right</span>
+                </button>
+
+                <!-- Carousel Dots -->
+                <div class="carousel-dots" id="carouselDots"></div>
+
+                <!-- Hero Content Overlay -->
+                <div class="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
+                    <div class="max-w-5xl mx-auto">
+                        <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Residencia Exclusiva
+                            en Alquiler</p>
+                        <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                            Donde la altura<br class="hidden md:block"> se encuentra con la distinción
+                        </h1>
+                        <p class="text-white/80 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
+                            Una residencia de 171 m² diseñada para quienes entienden que el hogar es también una
+                            declaración de principios.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#visita"
+                                class="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg">
+                                <span class="material-symbols-outlined">calendar_today</span>
+                                Solicitar Visita Privada
+                            </a>
+                            <a href="https://wa.me/59172004767?text=Buenos%20días,%20me%20interesa%20coordinar%20una%20visita%20privada%20al%20departamento%20en%20Torres%20del%20Poeta."
+                                target="_blank"
+                                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-6 py-4 rounded-full font-medium transition-all border border-white/20">
+                                Contactar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="relative z-10 -mt-8 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">square_foot</span>
+                        <span class="text-2xl font-bold">171 m²</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-wider">Superficie</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">bed</span>
+                        <span class="text-2xl font-bold">4</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-wider">Dormitorios</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">bathtub</span>
+                        <span class="text-2xl font-bold">4</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-wider">Baños</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">apartment</span>
+                        <span class="text-2xl font-bold">Piso Alto</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-wider">Ubicación</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifestyle Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">El Arte de Residir</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Un espacio que refleja su trayectoria</h2>
+                <div class="elegant-divider mx-auto mb-8"></div>
+                <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                    En el corazón de la zona diplomática de La Paz, esta residencia ofrece mucho más que metros
+                    cuadrados: proporciona un escenario acorde a la vida de quienes representan, lideran y construyen a
+                    nivel internacional.
+                </p>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    165 metros cuadrados de amplitud, luz natural abundante y una atmósfera de serenidad que invita
+                    tanto al trabajo concentrado como al descanso genuino. El departamento se entrega vacío,
+                    permitiéndole crear un hogar que responda exclusivamente a su estilo de vida y necesidades de
+                    representación.
+                </p>
+            </div>
+        </section>
+
+        <!-- Spaces Detail Section -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Distribución y Calidad
+                    </p>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Espacios pensados para el bienestar
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            La residencia cuenta con cuatro dormitorios generosos, dos de ellos con baño privado en
+                            suite, ideales para garantizar la privacidad de cada integrante de la familia o para
+                            destinar un espacio exclusivo como estudio profesional.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Los cuatro baños completos presentan acabados contemporáneos, con revestimientos de calidad
+                            y grifería moderna. Cada ambiente ha sido diseñado para facilitar el orden y la
+                            funcionalidad cotidiana.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Los pisos de madera noble aportan calidez visual y durabilidad, mientras que los amplios
+                            ventanales con sistema termopanel aseguran silencio interior y eficiencia térmica durante
+                            todo el año.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                            <img src="images/hd/HD1.jpg" alt="Habitación luminosa" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden mt-8">
+                            <img src="images/hd/HD4.jpg" alt="Baño moderno" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comfort Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1 grid grid-cols-2 gap-4">
+                        <div class="aspect-square rounded-2xl overflow-hidden">
+                            <img src="images/hd/HD3.jpg" alt="Vista y luminosidad" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-2xl overflow-hidden mt-8">
+                            <img src="images/hd/HD6.jpg" alt="Dormitorio con closet" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Confort y
+                            Funcionalidad</p>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Climatización y aislamiento de
+                            primer nivel</h2>
+                        <div class="elegant-divider mb-8"></div>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            El sistema de calefacción por radiadores garantiza una temperatura estable y agradable en
+                            cada estancia, incluso durante los meses más fríos del altiplano. A diferencia de sistemas
+                            de aire forzado, los radiadores ofrecen un calor silencioso y uniforme que cuida la salud
+                            respiratoria de toda la familia.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Las ventanas con doble vidrio termopanel no solo conservan la temperatura interior: también
+                            reducen significativamente el ruido exterior, creando un refugio de tranquilidad en medio de
+                            la actividad urbana.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Building Amenities Section -->
+        <section class="py-20 bg-navy-900 text-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Torres del Poeta</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Un edificio que simplifica su vida</h2>
+                    <p class="text-white/60 max-w-2xl mx-auto">
+                        Residir en Torres del Poeta significa acceder a una infraestructura completa sin necesidad de
+                        desplazamientos innecesarios.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-2xl">shield</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2">Seguridad Permanente</h3>
+                            <p class="text-white/60 leading-relaxed">Control de acceso las 24 horas, personal de
+                                vigilancia capacitado y sistemas de monitoreo que garantizan la tranquilidad de
+                                residentes y visitantes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-2xl">fitness_center</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2">Gimnasio y Áreas Sociales</h3>
+                            <p class="text-white/60 leading-relaxed">Instalaciones de fitness equipadas, salón social
+                                para reuniones privadas y áreas de esparcimiento para toda la familia.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-2xl">shopping_bag</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2">Comercio Integrado</h3>
+                            <p class="text-white/60 leading-relaxed">Supermercado, locales comerciales y patio de
+                                comidas dentro del mismo complejo. Todo lo necesario sin salir del edificio.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors">
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-2xl">local_parking</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2">Estacionamiento Opcional</h3>
+                            <p class="text-white/60 leading-relaxed">Posibilidad de acceder a plaza de parqueo privada,
+                                coordinando directamente según disponibilidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Ubicación
+                            Estratégica</p>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">En el epicentro de la vida
+                            diplomática</h2>
+                        <div class="elegant-divider mb-8"></div>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Avenida Arce representa el eje institucional y empresarial más importante de La Paz. En sus
+                            inmediaciones se encuentran las principales embajadas, organismos internacionales, centros
+                            financieros y establecimientos educativos de prestigio.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            La conectividad es excepcional: acceso directo a las principales vías de la ciudad, cercanía
+                            al aeropuerto internacional de El Alto, y proximidad a restaurantes, centros culturales y
+                            servicios médicos de primer nivel.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Para familias con hijos en edad escolar, la zona ofrece colegios internacionales reconocidos
+                            y universidades de referencia, facilitando la logística diaria.
+                        </p>
+                    </div>
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="images/hd/HD7.jpg" alt="Vista panorámica de La Paz"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ideal Profile Section -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Perfil del Residente</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Una residencia para quienes exigen
+                    excelencia</h2>
+                <div class="elegant-divider mx-auto mb-8"></div>
+                <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                    Este departamento ha sido concebido para profesionales que requieren un espacio a la altura de sus
+                    responsabilidades: personal diplomático y consular, ejecutivos de empresas internacionales,
+                    representantes de organismos multilaterales y familias que valoran la privacidad, la seguridad y un
+                    entorno que respalde su imagen institucional.
+                </p>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    El hecho de entregarse vacío representa una ventaja distintiva: usted podrá ambientarlo según sus
+                    propios estándares, incorporando el mobiliario y la decoración que mejor representen su identidad y
+                    necesidades profesionales.
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Galería</p>
+                    <h2 class="font-display text-3xl font-bold">Recorra cada espacio</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD1.jpg" alt="Habitación principal" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD2.jpg" alt="Habitación con baño" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD3.jpg" alt="Habitación con closet" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD4.jpg" alt="Baño moderno" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD5.jpg" alt="Habitación amplia" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/HD6.jpg" alt="Dormitorio" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity md:col-span-2">
+                        <img src="images/hd/HD7.jpg" alt="Vista nocturna" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-navy-900 text-white" id="visita">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">El Siguiente Paso</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Conozca personalmente esta residencia</h2>
+                <p class="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                    Algunas decisiones requieren presencia. Lo invitamos a recorrer el departamento en una visita
+                    privada, sin compromiso, en el horario que mejor se ajuste a su agenda. Nuestro equipo estará
+                    disponible para responder sus consultas y brindarle toda la información adicional que requiera.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+                    <a href="https://wa.me/59172004767?text=Buenos%20días,%20me%20interesa%20coordinar%20una%20visita%20privada%20al%20departamento%20en%20Torres%20del%20Poeta.%20Quedo%20atento%20a%20su%20respuesta."
+                        target="_blank"
+                        class="flex items-center justify-center gap-3 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Solicitar Visita por WhatsApp
+                    </a>
+                    <a href="tel:+59172004767"
+                        class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-medium transition-all border border-white/20">
+                        <span class="material-symbols-outlined">call</span>
+                        Llamar Directamente
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/50">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-lg">schedule</span>
+                        Respuesta en menos de 24 horas
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-lg">lock</span>
+                        Visita privada y confidencial
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="font-display text-xl font-bold">POETA</span>
+                <div class="w-2 h-2 rounded-full bg-primary"></div>
+            </div>
+            <p class="text-slate-500 mb-2">Torres del Poeta</p>
+            <p class="text-sm text-slate-400 mb-8">Avenida Arce, La Paz, Bolivia</p>
+            <div class="flex justify-center gap-8 text-sm mb-8">
+                <a href="tel:+59172004767"
+                    class="text-slate-600 hover:text-primary transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">call</span>
+                    +591 720 04767
+                </a>
+                <a href="mailto:info@torresdelpoeta.bo"
+                    class="text-slate-600 hover:text-primary transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">mail</span>
+                    Correo electrónico
+                </a>
+            </div>
+            <p class="text-xs text-slate-400">Todas las imágenes corresponden al inmueble real. Disponibilidad sujeta a
+                confirmación.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/59172004767?text=Buenos%20días,%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta."
+        target="_blank"
+        class="whatsapp-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Carousel JavaScript -->
+    <script>
+        const carousel = {
+            currentSlide: 0,
+            totalSlides: 7,
+            autoPlayInterval: null,
+
+            init() {
+                this.createDots();
+                this.startAutoPlay();
+                this.addTouchSupport();
+            },
+
+            createDots() {
+                const dotsContainer = document.getElementById('carouselDots');
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                    dot.onclick = () => this.goToSlide(i);
+                    dotsContainer.appendChild(dot);
+                }
+            },
+
+            updateDots() {
+                const dots = document.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            },
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                // Transition using CSS opacity: toggle active class
+                const slides = document.querySelectorAll('.carousel-slide');
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[this.currentSlide].classList.add('active');
+
+                this.updateDots();
+            },
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            },
+
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            },
+
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), 6000);
+
+                // Pause on hover
+                const carouselEl = document.querySelector('.carousel');
+                carouselEl.addEventListener('mouseenter', () => clearInterval(this.autoPlayInterval));
+                carouselEl.addEventListener('mouseleave', () => this.startAutoPlay());
+            },
+
+            addTouchSupport() {
+                const carouselEl = document.querySelector('.carousel');
+                let startX = 0;
+                let endX = 0;
+
+                carouselEl.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                carouselEl.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                });
+            }
+        };
+
+        // Global functions for onclick
+        function nextSlide() { carousel.nextSlide(); }
+        function prevSlide() { carousel.prevSlide(); }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => carousel.init());
+    </script>
+</body>
+
+</html>
