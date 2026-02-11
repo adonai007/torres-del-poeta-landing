@@ -4,9 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torres del Poeta - Residencia Premium en Av. Arce | La Paz, Bolivia</title>
+    <title>Torres del Poeta - Residencia Premium Amoblada en Av. Arce | La Paz, Bolivia</title>
     <meta name="description"
-        content="Residencia de 171 m² en Torres del Poeta, zona de embajadas. 4 dormitorios, 4 baños, calefacción, seguridad permanente. Ideal para diplomáticos y ejecutivos.">
+        content="Residencia completamente amoblada de 171 m² en Torres del Poeta, zona de embajadas. 4 dormitorios, 4 baños, totalmente equipada. Calefacción, seguridad permanente. Ideal para diplomáticos y ejecutivos.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Torres del Poeta - Residencia Premium 171 m² | Bs. 10,000/mes">
+    <meta property="og:description"
+        content="Residencia de lujo completamente amoblada en la zona diplomática de La Paz. 4 dormitorios, 4 baños, calefacción, seguridad 24/7. Disponibilidad inmediata.">
+    <meta property="og:image" content="images/hd/hd2_amoblado/sala1.jpg">
+    <meta property="og:locale" content="es_BO">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Apartment",
+      "name": "Residencia Premium en Torres del Poeta",
+      "description": "Departamento de 171 m² completamente amoblado y equipado en la zona diplomática de La Paz",
+      "numberOfRooms": 4,
+      "numberOfBathroomsTotal": 4,
+      "floorSize": {"@type": "QuantitativeValue", "value": 171, "unitCode": "MTK"},
+      "address": {"@type": "PostalAddress", "streetAddress": "Avenida Arce", "addressLocality": "La Paz", "addressCountry": "BO"},
+      "offers": {"@type": "Offer", "price": "10000", "priceCurrency": "BOB", "availability": "https://schema.org/InStock"}
+    }
+    </script>
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
@@ -186,6 +209,220 @@
             height: 2px;
             background: linear-gradient(90deg, transparent, #C5A059, transparent);
         }
+
+        /* Smooth fade-in animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Hover effects for images */
+        .image-hover-zoom {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .image-hover-zoom:hover {
+            transform: scale(1.05);
+        }
+
+        /* Elegant card hover */
+        .elegant-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .elegant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Gold shimmer effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Luxury gradient backgrounds */
+        .luxury-gradient {
+            background: linear-gradient(135deg, #FDFCFB 0%, #F8F7F4 50%, #FDFCFB 100%);
+        }
+
+        .dark-luxury-gradient {
+            background: linear-gradient(135deg, #0A0F1D 0%, #141C2F 50%, #0A0F1D 100%);
+        }
+
+        /* Stats card enhancement */
+        .stats-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        /* Button enhancements */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* === NEW CONVERSION STYLES === */
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Urgency badge pulse */
+        @keyframes urgencyPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+            }
+        }
+
+        .urgency-badge {
+            animation: urgencyPulse 2s infinite;
+        }
+
+        /* Sticky bottom CTA bar (mobile) */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 49;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-cta-bar.visible {
+            transform: translateY(0);
+        }
+
+        @media (min-width: 768px) {
+            .sticky-cta-bar {
+                display: none;
+            }
+        }
+
+        /* Lightbox modal */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Price highlight */
+        @keyframes priceGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(197, 160, 89, 0.6);
+            }
+        }
+
+        .price-glow {
+            animation: priceGlow 3s ease-in-out infinite;
+        }
+
+        /* Trust badges */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.2);
+        }
+
+        /* Counter animation */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
@@ -200,15 +437,23 @@
                 <div class="w-2 h-2 rounded-full bg-primary"></div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="hidden sm:flex items-center gap-2 text-sm">
-                    <button class="opacity-60 hover:opacity-100 transition-opacity">EN</button>
+                <div class="hidden sm:flex items-center gap-2 text-sm bg-slate-50 px-3 py-2 rounded-full">
+                    <button class="lang-btn px-2 py-1 rounded-md hover:bg-white transition-all" data-lang="es"
+                        onclick="setLanguage('es')">ES</button>
                     <span class="text-slate-300">|</span>
-                    <button class="font-semibold">ES</button>
+                    <button class="lang-btn px-2 py-1 rounded-md hover:bg-white transition-all" data-lang="en"
+                        onclick="setLanguage('en')">EN</button>
+                    <span class="text-slate-300">|</span>
+                    <button class="lang-btn px-2 py-1 rounded-md hover:bg-white transition-all" data-lang="fr"
+                        onclick="setLanguage('fr')">FR</button>
+                    <span class="text-slate-300">|</span>
+                    <button class="lang-btn px-2 py-1 rounded-md hover:bg-white transition-all" data-lang="pt"
+                        onclick="setLanguage('pt')">PT</button>
                 </div>
                 <a href="tel:+59172004767"
                     class="hidden md:flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors">
                     <span class="material-symbols-outlined text-lg">call</span>
-                    +591 720 04767
+                    <span data-i18n="phone">+591 720 04767</span>
                 </a>
             </div>
         </div>
@@ -220,42 +465,53 @@
         <section class="relative">
             <div class="carousel h-[75vh] min-h-[550px] max-h-[750px]">
                 <div class="carousel-inner h-full" id="carouselInner">
-                    <!-- Slide 1 - Vista Nocturna -->
+                    <!-- Slide 1 - Sala de Estar -->
                     <div class="carousel-slide active">
-                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
-                            loading="eager">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                        <img src="images/hd/hd2_amoblado/sala1.jpg"
+                            alt="Sala de estar amoblada con sofás elegantes y decoración moderna" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
                     </div>
-                    <!-- Slide 2 -->
+                    <!-- Slide 2 - Cocina Equipada -->
                     <div class="carousel-slide">
-                        <img src="images/hd/HD1.jpg" alt="Habitación principal con luz natural y calefacción"
+                        <img src="images/hd/hd2_amoblado/cocina.jpg"
+                            alt="Cocina totalmente equipada con electrodomésticos y acabados premium" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                    </div>
+                    <!-- Slide 3 - Suite Principal -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/suite1_2.jpg"
+                            alt="Dormitorio suite principal con mobiliario de lujo" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                    </div>
+                    <!-- Slide 4 - Área de Estar -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/sala5.jpg"
+                            alt="Espacio de estar amplio con iluminación natural" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                    </div>
+                    <!-- Slide 5 - Escritorio/Estudio -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/escritorio1.jpg"
+                            alt="Área de escritorio para trabajo remoto o estudio" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                    </div>
+                    <!-- Slide 6 - Comedor y Cocina -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/cocina3.jpg" alt="Área de comedor integrada con cocina moderna"
                             loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
                     </div>
-                    <!-- Slide 3 -->
+                    <!-- Slide 7 - Vista General Sala -->
                     <div class="carousel-slide">
-                        <img src="images/hd/HD2.jpg" alt="Habitación con baño en-suite" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                        <img src="images/hd/hd2_amoblado/sala7.jpg"
+                            alt="Vista general de la sala de estar completamente amoblada" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
                     </div>
-                    <!-- Slide 4 -->
+                    <!-- Slide 8 - Vista Nocturna -->
                     <div class="carousel-slide">
-                        <img src="images/hd/HD3.jpg" alt="Habitación con closet y vista a la ciudad" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="carousel-slide">
-                        <img src="images/hd/HD5.jpg" alt="Habitación amplia con ventanal" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="carousel-slide">
-                        <img src="images/hd/HD6.jpg" alt="Dormitorio con closet empotrado" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-                    </div>
-                    <!-- Slide 7 -->
-                    <div class="carousel-slide">
-                        <img src="images/hd/HD4.jpg" alt="Baño moderno con acabados premium" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
                     </div>
                 </div>
 
@@ -272,26 +528,59 @@
 
                 <!-- Hero Content Overlay -->
                 <div class="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
-                    <div class="max-w-5xl mx-auto">
-                        <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Residencia Exclusiva
-                            en Alquiler</p>
-                        <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                            Donde la altura<br class="hidden md:block"> se encuentra con la distinción
+                    <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-sm rounded-3xl p-6 md:p-10">
+                        <!-- Urgency badge -->
+                        <div class="flex flex-wrap items-center gap-3 mb-6">
+                            <div
+                                class="inline-flex items-center gap-2 bg-primary/30 backdrop-blur-md border border-primary/40 px-4 py-2 rounded-full shadow-xl">
+                                <div class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-lg"></div>
+                                <p class="text-primary text-xs md:text-sm font-semibold uppercase tracking-[0.25em]"
+                                    style="text-shadow: 0 2px 10px rgba(0,0,0,0.8);" data-i18n="badge">Residencia
+                                    Exclusiva en Alquiler</p>
+                            </div>
+                            <div
+                                class="inline-flex items-center gap-2 urgency-badge bg-red-500/20 backdrop-blur-md border border-red-400/40 px-3 py-1.5 rounded-full">
+                                <div class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></div>
+                                <span class="text-red-300 text-xs font-semibold uppercase tracking-wider"
+                                    data-i18n="urgencyBadge">Disponibilidad Inmediata</span>
+                            </div>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-7xl font-bold mb-4 leading-[1.1]"
+                            style="text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.6);">
+                            <span data-i18n="heroTitle1">Donde la altura</span><br class="hidden md:block"> <span
+                                data-i18n="heroTitle2">se encuentra con la</span> <span class="text-primary"
+                                data-i18n="heroTitleHighlight">distinción</span>
                         </h1>
-                        <p class="text-white/80 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
-                            Una residencia de 171 m² diseñada para quienes entienden que el hogar es también una
-                            declaración de principios.
+                        <!-- Price visible in hero -->
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="font-display text-3xl md:text-5xl font-bold text-primary price-glow"
+                                data-i18n="heroPrice">Bs. 10,000</span>
+                            <span class="text-white/70 text-base md:text-lg" data-i18n="heroPriceUnit">/mes</span>
+                        </div>
+                        <p class="text-white text-base md:text-xl max-w-3xl mb-8 leading-relaxed font-light"
+                            style="text-shadow: 0 2px 15px rgba(0,0,0,0.9), 0 1px 8px rgba(0,0,0,0.7);"
+                            data-i18n="heroSubtitle">
+                            Una residencia de <span class="font-semibold text-primary">171 m²</span> completamente
+                            amoblada y equipada, diseñada para quienes entienden que el hogar es también una declaración
+                            de principios.
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#visita"
-                                class="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg">
-                                <span class="material-symbols-outlined">calendar_today</span>
-                                Solicitar Visita Privada
+                                class="btn-primary group flex items-center gap-3 bg-primary hover:bg-primary-dark text-white px-10 py-5 rounded-full font-bold transition-all shadow-2xl hover:shadow-primary/50 hover:scale-105"
+                                style="box-shadow: 0 10px 40px rgba(197, 160, 89, 0.4), 0 4px 15px rgba(0,0,0,0.3);">
+                                <span
+                                    class="material-symbols-outlined group-hover:scale-110 transition-transform">calendar_today</span>
+                                <span data-i18n="ctaVisit">Solicitar Visita Privada</span>
                             </a>
                             <a href="https://wa.me/59172004767?text=Buenos%20días,%20me%20interesa%20coordinar%20una%20visita%20privada%20al%20departamento%20en%20Torres%20del%20Poeta."
                                 target="_blank"
-                                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-6 py-4 rounded-full font-medium transition-all border border-white/20">
-                                Contactar Ahora
+                                class="group flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-8 py-5 rounded-full font-semibold transition-all border-2 border-white/40 hover:border-white/60 shadow-xl hover:shadow-2xl">
+                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                <span data-i18n="ctaContact">Contactar Ahora</span>
                             </a>
                         </div>
                     </div>
@@ -300,29 +589,62 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="relative z-10 -mt-8 px-4">
-            <div class="max-w-4xl mx-auto">
+        <section class="relative z-10 -mt-16 px-4">
+            <div class="max-w-5xl mx-auto">
                 <div
-                    class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    <div class="flex flex-col items-center">
-                        <span class="material-symbols-outlined text-primary text-3xl mb-2">square_foot</span>
-                        <span class="text-2xl font-bold">171 m²</span>
-                        <span class="text-xs uppercase text-slate-500 tracking-wider">Superficie</span>
+                    class="stats-card rounded-3xl shadow-2xl p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative overflow-hidden">
+                    <!-- Decorative corner accent -->
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full">
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="material-symbols-outlined text-primary text-3xl mb-2">bed</span>
-                        <span class="text-2xl font-bold">4</span>
-                        <span class="text-xs uppercase text-slate-500 tracking-wider">Dormitorios</span>
+                    <div
+                        class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-full">
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="material-symbols-outlined text-primary text-3xl mb-2">bathtub</span>
-                        <span class="text-2xl font-bold">4</span>
-                        <span class="text-xs uppercase text-slate-500 tracking-wider">Baños</span>
+
+                    <div class="flex flex-col items-center relative group">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-3xl">square_foot</span>
+                        </div>
+                        <span
+                            class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">171
+                            m²</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-[0.2em] font-medium"
+                            data-i18n="statsSurface">Superficie Total</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="material-symbols-outlined text-primary text-3xl mb-2">apartment</span>
-                        <span class="text-2xl font-bold">Piso Alto</span>
-                        <span class="text-xs uppercase text-slate-500 tracking-wider">Ubicación</span>
+
+                    <div class="flex flex-col items-center relative group">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-3xl">bed</span>
+                        </div>
+                        <span
+                            class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">4</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-[0.2em] font-medium"
+                            data-i18n="statsBedrooms">Dormitorios</span>
+                    </div>
+
+                    <div class="flex flex-col items-center relative group">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-3xl">bathtub</span>
+                        </div>
+                        <span
+                            class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">4</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-[0.2em] font-medium"
+                            data-i18n="statsBathrooms">Baños Completos</span>
+                    </div>
+
+                    <div class="flex flex-col items-center relative group">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-3xl">apartment</span>
+                        </div>
+                        <span
+                            class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2"
+                            data-i18n="statsFloor">Piso Alto</span>
+                        <span class="text-xs uppercase text-slate-500 tracking-[0.2em] font-medium"
+                            data-i18n="statsLocation">Vista Panorámica</span>
                     </div>
                 </div>
             </div>
@@ -340,11 +662,94 @@
                     nivel internacional.
                 </p>
                 <p class="text-slate-600 text-lg leading-relaxed">
-                    165 metros cuadrados de amplitud, luz natural abundante y una atmósfera de serenidad que invita
-                    tanto al trabajo concentrado como al descanso genuino. El departamento se entrega vacío,
-                    permitiéndole crear un hogar que responda exclusivamente a su estilo de vida y necesidades de
-                    representación.
+                    171 metros cuadrados de amplitud, luz natural abundante y una atmósfera de serenidad que invita
+                    tanto al trabajo concentrado como al descanso genuino. El departamento se entrega completamente
+                    amoblado y equipado con todo lo necesario para mudarse inmediatamente, desde mobiliario de calidad
+                    hasta vajilla y utensilios de cocina.
                 </p>
+            </div>
+        </section>
+
+        <!-- Fully Furnished Section -->
+        <section class="py-24 luxury-gradient relative overflow-hidden">
+            <!-- Decorative elements -->
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+                        <div class="w-2 h-2 rounded-full bg-primary"></div>
+                        <p class="text-primary text-sm font-semibold uppercase tracking-[0.25em]"
+                            data-i18n="furnishedTag">Listo para Habitar</p>
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent"
+                        data-i18n="furnishedTitle">
+                        Completamente Amoblado y Equipado
+                    </h2>
+                    <div class="elegant-divider mx-auto mb-8"></div>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto" data-i18n="furnishedSubtitle">
+                        Cada detalle ha sido cuidadosamente seleccionado para ofrecerle una experiencia de lujo
+                        inmediata
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="elegant-card bg-white p-8 rounded-3xl shadow-lg border border-slate-100 relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full">
+                        </div>
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-white text-3xl">chair</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4 text-slate-900" data-i18n="furnishedCard1Title">
+                            Mobiliario de Calidad</h3>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="furnishedCard1Text">
+                            Sala de estar completa, comedor elegante, escritorio ejecutivo, camas premium y closets
+                            amplios. Todo el mobiliario necesario para una vida confortable y distinguida.
+                        </p>
+                    </div>
+
+                    <div
+                        class="elegant-card bg-white p-8 rounded-3xl shadow-lg border border-slate-100 relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full">
+                        </div>
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-white text-3xl">kitchen</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4 text-slate-900" data-i18n="furnishedCard2Title">
+                            Cocina Totalmente Equipada</h3>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="furnishedCard2Text">
+                            Electrodomésticos de última generación, utensilios de cocina completos, vajilla fina,
+                            cristalería y todo lo necesario para cocinar desde el primer día.
+                        </p>
+                    </div>
+
+                    <div
+                        class="elegant-card bg-white p-8 rounded-3xl shadow-lg border border-slate-100 relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full">
+                        </div>
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-white text-3xl">night_shelter</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4 text-slate-900" data-i18n="furnishedCard3Title">
+                            Mudanza Inmediata</h3>
+                        <p class="text-slate-600 leading-relaxed" data-i18n="furnishedCard3Text">
+                            Solo traiga su equipaje personal. El departamento está listo para habitarse sin necesidad de
+                            comprar muebles ni enseres. Comience su nueva vida de inmediato.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -378,10 +783,13 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="aspect-[4/5] rounded-2xl overflow-hidden">
-                            <img src="images/hd/HD1.jpg" alt="Habitación luminosa" class="w-full h-full object-cover">
+                            <img src="images/hd/hd2_amoblado/suite1_!.jpg"
+                                alt="Dormitorio suite amoblado con cama y mobiliario"
+                                class="w-full h-full object-cover">
                         </div>
                         <div class="aspect-[4/5] rounded-2xl overflow-hidden mt-8">
-                            <img src="images/hd/HD4.jpg" alt="Baño moderno" class="w-full h-full object-cover">
+                            <img src="images/hd/hd2_amoblado/baño_fam.jpg"
+                                alt="Baño familiar completo con acabados modernos" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -394,10 +802,12 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1 grid grid-cols-2 gap-4">
                         <div class="aspect-square rounded-2xl overflow-hidden">
-                            <img src="images/hd/HD3.jpg" alt="Vista y luminosidad" class="w-full h-full object-cover">
+                            <img src="images/hd/hd2_amoblado/escritorio3.jpg"
+                                alt="Espacio de trabajo con escritorio y estantería" class="w-full h-full object-cover">
                         </div>
                         <div class="aspect-square rounded-2xl overflow-hidden mt-8">
-                            <img src="images/hd/HD6.jpg" alt="Dormitorio con closet" class="w-full h-full object-cover">
+                            <img src="images/hd/hd2_amoblado/sala6.jpg" alt="Sala de estar con muebles confortables"
+                                class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="order-1 md:order-2">
@@ -510,7 +920,7 @@
                         </p>
                     </div>
                     <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="images/hd/HD7.jpg" alt="Vista panorámica de La Paz"
+                        <img src="images/hd/hd2_amoblado/sala2.jpg" alt="Vista amplia de la sala de estar amoblada"
                             class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -531,9 +941,10 @@
                     entorno que respalde su imagen institucional.
                 </p>
                 <p class="text-slate-600 text-lg leading-relaxed">
-                    El hecho de entregarse vacío representa una ventaja distintiva: usted podrá ambientarlo según sus
-                    propios estándares, incorporando el mobiliario y la decoración que mejor representen su identidad y
-                    necesidades profesionales.
+                    El hecho de entregarse completamente amoblado representa una ventaja distintiva: podrá instalarse de
+                    inmediato sin preocuparse por la logística del mobiliario. Cada ambiente cuenta con muebles de
+                    calidad, electrodomésticos, vajilla completa y todos los elementos necesarios para comenzar a vivir
+                    desde el primer día.
                 </p>
             </div>
         </section>
@@ -542,37 +953,214 @@
         <section class="py-16">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="text-center mb-12">
-                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">Galería</p>
-                    <h2 class="font-display text-3xl font-bold">Recorra cada espacio</h2>
+                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4" data-i18n="galleryTag">
+                        Galería</p>
+                    <h2 class="font-display text-3xl font-bold" data-i18n="galleryTitle">Recorra cada espacio</h2>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Sala de Estar -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD1.jpg" alt="Habitación principal" class="w-full h-full object-cover">
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/sala1.jpg" alt="Sala de estar principal amoblada"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/sala4.jpg" alt="Vista de sala con sofás y decoración"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
                     </div>
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD2.jpg" alt="Habitación con baño" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/sala8.jpg" alt="Área de estar con muebles modernos"
+                            class="w-full h-full object-cover">
                     </div>
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD3.jpg" alt="Habitación con closet" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/sala9.jpg" alt="Espacio de living completamente equipado"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Cocina -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/cocina1.jpg" alt="Cocina equipada con electrodomésticos"
+                            class="w-full h-full object-cover">
                     </div>
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD4.jpg" alt="Baño moderno" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/cocina2.jpg" alt="Área de cocina con barra"
+                            class="w-full h-full object-cover">
                     </div>
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD5.jpg" alt="Habitación amplia" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/cocina4.jpg" alt="Cocina moderna con alacenas"
+                            class="w-full h-full object-cover">
                     </div>
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/HD6.jpg" alt="Dormitorio" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/cocina7.jpg" alt="Vista completa de cocina integral"
+                            class="w-full h-full object-cover">
                     </div>
+
+                    <!-- Utensilios y Detalles -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/utensilios2.jpg" alt="Utensilios de cocina incluidos"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/vitrina.jpg" alt="Vitrina con vajilla y cristalería"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/vitrina2.jpg" alt="Detalle de vitrina decorativa"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Escritorio/Estudio -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/escriotrio2.jpg" alt="Área de escritorio equipada para trabajo"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Lavandería -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/lavanderia1.jpg" alt="Área de lavandería con lavadora"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Suite -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/suite1_2.jpg" alt="Dormitorio suite principal"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Baño -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/hd/hd2_amoblado/baño_fam.jpg" alt="Baño completo con tina"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Sala destacada - ocupa 2 columnas -->
                     <div
                         class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity md:col-span-2">
-                        <img src="images/hd/HD7.jpg" alt="Vista nocturna" class="w-full h-full object-cover">
+                        <img src="images/hd/hd2_amoblado/sala2.jpg" alt="Vista panorámica de sala amoblada"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Vista Nocturna de La Paz - ocupa 2 columnas -->
+                    <div
+                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity md:col-span-2">
+                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing & Terms Section -->
+        <section class="py-20 luxury-gradient reveal">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4" data-i18n="pricingTag">
+                        Inversión Mensual</p>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4" data-i18n="pricingTitle">Todo incluido,
+                        sin sorpresas</h2>
+                    <div class="elegant-divider mx-auto mb-6"></div>
+                </div>
+
+                <div class="max-w-xl mx-auto">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-primary/20 relative">
+                        <!-- Gold accent top -->
+                        <div class="h-2 bg-gradient-to-r from-primary via-yellow-400 to-primary shimmer"></div>
+                        <div class="p-10 text-center">
+                            <p class="text-sm uppercase tracking-[0.2em] text-slate-500 mb-2" data-i18n="pricingLabel">
+                                Alquiler mensual</p>
+                            <div class="flex items-baseline justify-center gap-2 mb-2">
+                                <span class="font-display text-6xl md:text-7xl font-bold text-slate-900 price-glow"
+                                    data-i18n="pricingValue">Bs. 10,000</span>
+                                <span class="text-2xl text-slate-400" data-i18n="pricingPeriod">/mes</span>
+                            </div>
+                            <p class="text-slate-500 mb-8" data-i18n="pricingNote">Completamente amoblado y equipado</p>
+
+                            <div class="grid grid-cols-2 gap-4 mb-8 text-left">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700" data-i18n="pricingItem1">Mobiliario
+                                        completo</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700"
+                                        data-i18n="pricingItem2">Electrodomésticos</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700" data-i18n="pricingItem3">Vajilla y
+                                        utensilios</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700" data-i18n="pricingItem4">Calefacción
+                                        central</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700" data-i18n="pricingItem5">Seguridad 24/7</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-sm text-slate-700" data-i18n="pricingItem6">Disponibilidad
+                                        inmediata</span>
+                                </div>
+                            </div>
+
+                            <a href="https://wa.me/59172004767?text=Buenos%20d%C3%ADas%2C%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta%20(Bs.%2010%2C000%2Fmes).%20%C2%BFPodr%C3%ADa%20coordinar%20una%20visita%3F"
+                                target="_blank"
+                                class="btn-primary w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary-dark text-white px-8 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-primary/40 hover:scale-[1.02]">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                <span data-i18n="pricingCTA">Consultar Disponibilidad</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                    <div class="trust-badge bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">verified</span>
+                        <p class="text-sm font-semibold text-slate-800" data-i18n="trust1">Imágenes Reales</p>
+                        <p class="text-xs text-slate-500" data-i18n="trust1Sub">Fotos del inmueble actual</p>
+                    </div>
+                    <div class="trust-badge bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">schedule</span>
+                        <p class="text-sm font-semibold text-slate-800" data-i18n="trust2">Respuesta Rápida</p>
+                        <p class="text-xs text-slate-500" data-i18n="trust2Sub">Menos de 24 horas</p>
+                    </div>
+                    <div class="trust-badge bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">handshake</span>
+                        <p class="text-sm font-semibold text-slate-800" data-i18n="trust3">Sin Intermediarios</p>
+                        <p class="text-xs text-slate-500" data-i18n="trust3Sub">Trato directo</p>
+                    </div>
+                    <div class="trust-badge bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-2">visibility</span>
+                        <p class="text-sm font-semibold text-slate-800" data-i18n="trust4">Visita Sin Compromiso</p>
+                        <p class="text-xs text-slate-500" data-i18n="trust4Sub">Recórralo personalmente</p>
                     </div>
                 </div>
             </div>
@@ -581,9 +1169,11 @@
         <!-- CTA Section -->
         <section class="py-20 bg-navy-900 text-white" id="visita">
             <div class="max-w-3xl mx-auto px-4 text-center">
-                <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4">El Siguiente Paso</p>
-                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Conozca personalmente esta residencia</h2>
-                <p class="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                <p class="text-primary text-sm font-medium uppercase tracking-[0.2em] mb-4" data-i18n="ctaTag">El
+                    Siguiente Paso</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" data-i18n="ctaTitle">Conozca personalmente
+                    esta residencia</h2>
+                <p class="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto" data-i18n="ctaText">
                     Algunas decisiones requieren presencia. Lo invitamos a recorrer el departamento en una visita
                     privada, sin compromiso, en el horario que mejor se ajuste a su agenda. Nuestro equipo estará
                     disponible para responder sus consultas y brindarle toda la información adicional que requiera.
@@ -597,23 +1187,23 @@
                             <path
                                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
-                        Solicitar Visita por WhatsApp
+                        <span data-i18n="ctaWhatsApp">Solicitar Visita por WhatsApp</span>
                     </a>
                     <a href="tel:+59172004767"
                         class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-medium transition-all border border-white/20">
                         <span class="material-symbols-outlined">call</span>
-                        Llamar Directamente
+                        <span data-i18n="ctaCall">Llamar Directamente</span>
                     </a>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/50">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-lg">schedule</span>
-                        Respuesta en menos de 24 horas
+                        <span data-i18n="ctaFeature1">Respuesta en menos de 24 horas</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-lg">lock</span>
-                        Visita privada y confidencial
+                        <span data-i18n="ctaFeature2">Visita privada y confidencial</span>
                     </div>
                 </div>
             </div>
@@ -638,29 +1228,551 @@
                 <a href="mailto:info@torresdelpoeta.bo"
                     class="text-slate-600 hover:text-primary transition-colors flex items-center gap-2">
                     <span class="material-symbols-outlined text-lg">mail</span>
-                    Correo electrónico
+                    <span data-i18n="footerEmail">Correo electrónico</span>
                 </a>
             </div>
-            <p class="text-xs text-slate-400">Todas las imágenes corresponden al inmueble real. Disponibilidad sujeta a
+            <p class="text-xs text-slate-400" data-i18n="footerDisclaimer">Todas las imágenes corresponden al inmueble
+                real. Disponibilidad sujeta a
                 confirmación.</p>
         </div>
     </footer>
 
+    <!-- Sticky Mobile CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCTA">
+        <div class="flex items-center justify-between px-4 py-3">
+            <div>
+                <p class="font-display text-lg font-bold text-slate-900" data-i18n="stickyPrice">Bs. 10,000<span
+                        class="text-sm font-normal text-slate-500">/mes</span></p>
+                <p class="text-xs text-slate-500" data-i18n="stickyLabel">Amoblado y equipado</p>
+            </div>
+            <a href="https://wa.me/59172004767?text=Hola%2C%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta."
+                target="_blank"
+                class="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-5 py-3 rounded-full font-bold text-sm transition-all shadow-lg">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                <span data-i18n="stickyCTA">Consultar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <button onclick="closeLightbox()"
+            class="absolute top-6 right-6 text-white/80 hover:text-white text-4xl transition-colors">&times;</button>
+        <button onclick="event.stopPropagation(); lightboxPrev()"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-5xl transition-colors">&lsaquo;</button>
+        <img id="lightboxImg" src="" alt="Vista ampliada" onclick="event.stopPropagation()">
+        <button onclick="event.stopPropagation(); lightboxNext()"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-5xl transition-colors">&rsaquo;</button>
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm" id="lightboxCounter"></div>
+    </div>
+
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/59172004767?text=Buenos%20días,%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta."
         target="_blank"
-        class="whatsapp-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all">
+        class="whatsapp-btn fixed bottom-20 md:bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
             <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
     </a>
 
+    <!-- Multi-language System -->
+    <script>
+        // Translations object
+        const translations = {
+            es: {
+                // Header
+                language: 'ES',
+                phone: '+591 720 04767',
+
+                // Hero Section
+                badge: 'Residencia Exclusiva en Alquiler',
+                heroTitle1: 'Donde la altura',
+                heroTitle2: 'se encuentra con la',
+                heroTitleHighlight: 'distinción',
+                heroSubtitle: 'Una residencia de <span class="font-semibold text-primary">171 m²</span> completamente amoblada y equipada, diseñada para quienes entienden que el hogar es también una declaración de principios.',
+                ctaVisit: 'Solicitar Visita Privada',
+                ctaContact: 'Contactar Ahora',
+
+                // Stats
+                statsSurface: 'Superficie Total',
+                statsBedrooms: 'Dormitorios',
+                statsBathrooms: 'Baños Completos',
+                statsLocation: 'Vista Panorámica',
+                statsFloor: 'Piso Alto',
+
+                // Lifestyle Section
+                lifestyleTag: 'El Arte de Residir',
+                lifestyleTitle: 'Un espacio que refleja su trayectoria',
+                lifestylePara1: 'En el corazón de la zona diplomática de La Paz, esta residencia ofrece mucho más que metros cuadrados: proporciona un escenario acorde a la vida de quienes representan, lideran y construyen a nivel internacional.',
+                lifestylePara2: '171 metros cuadrados de amplitud, luz natural abundante y una atmósfera de serenidad que invita tanto al trabajo concentrado como al descanso genuino. El departamento se entrega completamente amoblado y equipado con todo lo necesario para mudarse inmediatamente, desde mobiliario de calidad hasta vajilla y utensilios de cocina.',
+
+                // Furnished Section
+                furnishedTag: 'Listo para Habitar',
+                furnishedTitle: 'Completamente Amoblado y Equipado',
+                furnishedSubtitle: 'Cada detalle ha sido cuidadosamente seleccionado para ofrecerle una experiencia de lujo inmediata',
+                furnishedCard1Title: 'Mobiliario de Calidad',
+                furnishedCard1Text: 'Sala de estar completa, comedor elegante, escritorio ejecutivo, camas premium y closets amplios. Todo el mobiliario necesario para una vida confortable y distinguida.',
+                furnishedCard2Title: 'Cocina Totalmente Equipada',
+                furnishedCard2Text: 'Electrodomésticos de última generación, utensilios de cocina completos, vajilla fina, cristalería y todo lo necesario para cocinar desde el primer día.',
+                furnishedCard3Title: 'Mudanza Inmediata',
+                furnishedCard3Text: 'Solo traiga su equipaje personal. El departamento está listo para habitarse sin necesidad de comprar muebles ni enseres. Comience su nueva vida de inmediato.',
+
+                // Gallery
+                galleryTag: 'Galería',
+                galleryTitle: 'Recorra cada espacio',
+
+                // CTA Section
+                ctaTag: 'El Siguiente Paso',
+                ctaTitle: 'Conozca personalmente esta residencia',
+                ctaText: 'Algunas decisiones requieren presencia. Lo invitamos a recorrer el departamento en una visita privada, sin compromiso, en el horario que mejor se ajuste a su agenda. Nuestro equipo estará disponible para responder sus consultas y brindarle toda la información adicional que requiera.',
+                ctaWhatsApp: 'Solicitar Visita por WhatsApp',
+                ctaCall: 'Llamar Directamente',
+                ctaFeature1: 'Respuesta en menos de 24 horas',
+                ctaFeature2: 'Visita privada y confidencial',
+
+                // Footer
+                footerEmail: 'Correo electrónico',
+                footerDisclaimer: 'Todas las imágenes corresponden al inmueble real. Disponibilidad sujeta a confirmación.',
+
+                // Spaces Detail
+                spacesTag: 'Distribución y Calidad',
+                spacesTitle: 'Espacios pensados para el bienestar',
+
+                // Comfort Section
+                comfortTag: 'Confort y Funcionalidad',
+                comfortTitle: 'Climatización y aislamiento de primer nivel',
+
+                // Building Amenities
+                buildingTag: 'Torres del Poeta',
+                buildingTitle: 'Un edificio que simplifica su vida',
+                buildingSubtitle: 'Residir en Torres del Poeta significa acceder a una infraestructura completa sin necesidad de desplazamientos innecesarios.',
+
+                // Location
+                locationTag: 'Ubicación Estratégica',
+                locationTitle: 'En el epicentro de la vida diplomática',
+
+                // Ideal Profile
+                profileTag: 'Perfil del Residente',
+                profileTitle: 'Una residencia para quienes exigen excelencia',
+
+                // Urgency & Price (Hero)
+                heroPrice: 'Bs. 10,000',
+                heroPriceUnit: '/mes',
+                urgencyBadge: 'Disponibilidad Inmediata',
+
+                // Pricing Section
+                pricingTag: 'Inversión Mensual',
+                pricingTitle: 'Todo incluido, sin sorpresas',
+                pricingLabel: 'Alquiler mensual',
+                pricingValue: 'Bs. 10,000',
+                pricingPeriod: '/mes',
+                pricingNote: 'Completamente amoblado y equipado',
+                pricingItem1: 'Mobiliario completo',
+                pricingItem2: 'Electrodomésticos',
+                pricingItem3: 'Vajilla y utensilios',
+                pricingItem4: 'Calefacción central',
+                pricingItem5: 'Seguridad 24/7',
+                pricingItem6: 'Disponibilidad inmediata',
+                pricingCTA: 'Consultar Disponibilidad',
+
+                // Trust Badges
+                trust1: 'Imágenes Reales',
+                trust1Sub: 'Fotos del inmueble actual',
+                trust2: 'Respuesta Rápida',
+                trust2Sub: 'Menos de 24 horas',
+                trust3: 'Sin Intermediarios',
+                trust3Sub: 'Trato directo',
+                trust4: 'Visita Sin Compromiso',
+                trust4Sub: 'Recórralo personalmente',
+
+                // Sticky CTA
+                stickyPrice: 'Bs. 10,000',
+                stickyLabel: 'Amoblado y equipado',
+                stickyCTA: 'Consultar'
+            },
+            en: {
+                // Header
+                language: 'EN',
+                phone: '+591 720 04767',
+
+                // Hero Section
+                badge: 'Exclusive Residence for Rent',
+                heroTitle1: 'Where elevation',
+                heroTitle2: 'meets',
+                heroTitleHighlight: 'distinction',
+                heroSubtitle: 'A <span class="font-semibold text-primary">171 m²</span> fully furnished and equipped residence, designed for those who understand that home is also a statement of principles.',
+                ctaVisit: 'Request Private Viewing',
+                ctaContact: 'Contact Now',
+
+                // Stats
+                statsSurface: 'Total Surface',
+                statsBedrooms: 'Bedrooms',
+                statsBathrooms: 'Full Bathrooms',
+                statsLocation: 'Panoramic View',
+                statsFloor: 'High Floor',
+
+                // Lifestyle Section
+                lifestyleTag: 'The Art of Living',
+                lifestyleTitle: 'A space that reflects your journey',
+                lifestylePara1: 'In the heart of La Paz\'s diplomatic zone, this residence offers much more than square meters: it provides a setting befitting those who represent, lead, and build at an international level.',
+                lifestylePara2: '171 square meters of spaciousness, abundant natural light, and an atmosphere of serenity that invites both focused work and genuine rest. The apartment is delivered fully furnished and equipped with everything needed to move in immediately, from quality furniture to dishes and kitchen utensils.',
+
+                // Furnished Section
+                furnishedTag: 'Ready to Move In',
+                furnishedTitle: 'Fully Furnished and Equipped',
+                furnishedSubtitle: 'Every detail has been carefully selected to offer you an immediate luxury experience',
+                furnishedCard1Title: 'Quality Furniture',
+                furnishedCard1Text: 'Complete living room, elegant dining room, executive desk, premium beds and spacious closets. All the furniture needed for a comfortable and distinguished life.',
+                furnishedCard2Title: 'Fully Equipped Kitchen',
+                furnishedCard2Text: 'Latest generation appliances, complete kitchen utensils, fine china, glassware and everything needed to cook from day one.',
+                furnishedCard3Title: 'Immediate Move-in',
+                furnishedCard3Text: 'Just bring your personal luggage. The apartment is ready to move in without needing to buy furniture or household items. Start your new life immediately.',
+
+                // Gallery
+                galleryTag: 'Gallery',
+                galleryTitle: 'Tour every space',
+
+                // CTA Section
+                ctaTag: 'Next Step',
+                ctaTitle: 'Experience this residence in person',
+                ctaText: 'Some decisions require presence. We invite you to tour the apartment in a private visit, without commitment, at the time that best suits your schedule. Our team will be available to answer your questions and provide all the additional information you need.',
+                ctaWhatsApp: 'Request Visit via WhatsApp',
+                ctaCall: 'Call Directly',
+                ctaFeature1: 'Response within 24 hours',
+                ctaFeature2: 'Private and confidential visit',
+
+                // Footer
+                footerEmail: 'Email',
+                footerDisclaimer: 'All images correspond to the actual property. Availability subject to confirmation.',
+
+                // Spaces Detail
+                spacesTag: 'Layout and Quality',
+                spacesTitle: 'Spaces designed for well-being',
+
+                // Comfort Section
+                comfortTag: 'Comfort and Functionality',
+                comfortTitle: 'First-class climate control and insulation',
+
+                // Building Amenities
+                buildingTag: 'Torres del Poeta',
+                buildingTitle: 'A building that simplifies your life',
+                buildingSubtitle: 'Living at Torres del Poeta means accessing complete infrastructure without unnecessary travel.',
+
+                // Location
+                locationTag: 'Strategic Location',
+                locationTitle: 'At the epicenter of diplomatic life',
+
+                // Ideal Profile
+                profileTag: 'Resident Profile',
+                profileTitle: 'A residence for those who demand excellence',
+
+                heroPrice: 'Bs. 10,000',
+                heroPriceUnit: '/month',
+                urgencyBadge: 'Available Now',
+
+                pricingTag: 'Monthly Investment',
+                pricingTitle: 'All-inclusive, no surprises',
+                pricingLabel: 'Monthly rent',
+                pricingValue: 'Bs. 10,000',
+                pricingPeriod: '/month',
+                pricingNote: 'Fully furnished and equipped',
+                pricingItem1: 'Complete furniture',
+                pricingItem2: 'Appliances',
+                pricingItem3: 'Dishes and utensils',
+                pricingItem4: 'Central heating',
+                pricingItem5: '24/7 Security',
+                pricingItem6: 'Immediate availability',
+                pricingCTA: 'Check Availability',
+
+                trust1: 'Real Images',
+                trust1Sub: 'Actual property photos',
+                trust2: 'Quick Response',
+                trust2Sub: 'Within 24 hours',
+                trust3: 'No Middlemen',
+                trust3Sub: 'Direct contact',
+                trust4: 'No-Obligation Visit',
+                trust4Sub: 'Tour it personally',
+
+                stickyPrice: 'Bs. 10,000',
+                stickyLabel: 'Furnished and equipped',
+                stickyCTA: 'Inquire'
+            },
+            fr: {
+                // Header
+                language: 'FR',
+                phone: '+591 720 04767',
+
+                // Hero Section
+                badge: 'Résidence Exclusive à Louer',
+                heroTitle1: 'Où l\'altitude',
+                heroTitle2: 'rencontre la',
+                heroTitleHighlight: 'distinction',
+                heroSubtitle: 'Une résidence de <span class="font-semibold text-primary">171 m²</span> entièrement meublée et équipée, conçue pour ceux qui comprennent que la maison est aussi une déclaration de principes.',
+                ctaVisit: 'Demander une Visite Privée',
+                ctaContact: 'Nous Contacter',
+
+                // Stats
+                statsSurface: 'Surface Totale',
+                statsBedrooms: 'Chambres',
+                statsBathrooms: 'Salles de Bain Complètes',
+                statsLocation: 'Vue Panoramique',
+                statsFloor: 'Étage Élevé',
+
+                // Lifestyle Section
+                lifestyleTag: 'L\'Art de Résider',
+                lifestyleTitle: 'Un espace qui reflète votre parcours',
+                lifestylePara1: 'Au cœur de la zone diplomatique de La Paz, cette résidence offre bien plus que des mètres carrés : elle fournit un cadre digne de ceux qui représentent, dirigent et construisent au niveau international.',
+                lifestylePara2: '171 mètres carrés d\'espace, lumière naturelle abondante et une atmosphère de sérénité qui invite au travail concentré comme au repos véritable. L\'appartement est livré entièrement meublé et équipé avec tout le nécessaire pour emménager immédiatement, du mobilier de qualité à la vaisselle et aux ustensiles de cuisine.',
+
+                // Furnished Section
+                furnishedTag: 'Prêt à Emménager',
+                furnishedTitle: 'Entièrement Meublé et Équipé',
+                furnishedSubtitle: 'Chaque détail a été soigneusement sélectionné pour vous offrir une expérience de luxe immédiate',
+                furnishedCard1Title: 'Mobilier de Qualité',
+                furnishedCard1Text: 'Salon complet, salle à manger élégante, bureau exécutif, lits premium et placards spacieux. Tout le mobilier nécessaire pour une vie confortable et distinguée.',
+                furnishedCard2Title: 'Cuisine Entièrement Équipée',
+                furnishedCard2Text: 'Électroménagers dernière génération, ustensiles de cuisine complets, vaisselle fine, verrerie et tout le nécessaire pour cuisiner dès le premier jour.',
+                furnishedCard3Title: 'Emménagement Immédiat',
+                furnishedCard3Text: 'Apportez simplement vos bagages personnels. L\'appartement est prêt à être habité sans avoir besoin d\'acheter des meubles ou des articles ménagers. Commencez votre nouvelle vie immédiatement.',
+
+                // Gallery
+                galleryTag: 'Galerie',
+                galleryTitle: 'Parcourez chaque espace',
+
+                // CTA Section
+                ctaTag: 'Prochaine Étape',
+                ctaTitle: 'Découvrez cette résidence en personne',
+                ctaText: 'Certaines décisions nécessitent une présence. Nous vous invitons à visiter l\'appartement lors d\'une visite privée, sans engagement, à l\'heure qui vous convient le mieux. Notre équipe sera disponible pour répondre à vos questions et vous fournir toutes les informations supplémentaires dont vous avez besoin.',
+                ctaWhatsApp: 'Demander une Visite par WhatsApp',
+                ctaCall: 'Appeler Directement',
+                ctaFeature1: 'Réponse sous 24 heures',
+                ctaFeature2: 'Visite privée et confidentielle',
+
+                // Footer
+                footerEmail: 'Courriel',
+                footerDisclaimer: 'Toutes les images correspondent à la propriété réelle. Disponibilité sous réserve de confirmation.',
+
+                // Spaces Detail
+                spacesTag: 'Distribution et Qualité',
+                spacesTitle: 'Espaces pensés pour le bien-être',
+
+                // Comfort Section
+                comfortTag: 'Confort et Fonctionnalité',
+                comfortTitle: 'Climatisation et isolation de premier ordre',
+
+                // Building Amenities
+                buildingTag: 'Torres del Poeta',
+                buildingTitle: 'Un bâtiment qui simplifie votre vie',
+                buildingSubtitle: 'Résider à Torres del Poeta signifie accéder à une infrastructure complète sans déplacements inutiles.',
+
+                // Location
+                locationTag: 'Emplacement Stratégique',
+                locationTitle: 'Au cœur de la vie diplomatique',
+
+                // Ideal Profile
+                profileTag: 'Profil du Résident',
+                profileTitle: 'Une résidence pour ceux qui exigent l\'excellence',
+
+                heroPrice: 'Bs. 10,000',
+                heroPriceUnit: '/mois',
+                urgencyBadge: 'Disponibilité Immédiate',
+
+                pricingTag: 'Investissement Mensuel',
+                pricingTitle: 'Tout compris, sans surprises',
+                pricingLabel: 'Loyer mensuel',
+                pricingValue: 'Bs. 10,000',
+                pricingPeriod: '/mois',
+                pricingNote: 'Entièrement meublé et équipé',
+                pricingItem1: 'Mobilier complet',
+                pricingItem2: 'Électroménagers',
+                pricingItem3: 'Vaisselle et ustensiles',
+                pricingItem4: 'Chauffage central',
+                pricingItem5: 'Sécurité 24/7',
+                pricingItem6: 'Disponibilité immédiate',
+                pricingCTA: 'Vérifier la Disponibilité',
+
+                trust1: 'Images Réelles',
+                trust1Sub: 'Photos de la propriété actuelle',
+                trust2: 'Réponse Rapide',
+                trust2Sub: 'Moins de 24 heures',
+                trust3: 'Sans Intermédiaires',
+                trust3Sub: 'Contact direct',
+                trust4: 'Visite Sans Engagement',
+                trust4Sub: 'Visitez-le personnellement',
+
+                stickyPrice: 'Bs. 10,000',
+                stickyLabel: 'Meublé et équipé',
+                stickyCTA: 'Consulter'
+            },
+            pt: {
+                // Header
+                language: 'PT',
+                phone: '+591 720 04767',
+
+                // Hero Section
+                badge: 'Residência Exclusiva para Alugar',
+                heroTitle1: 'Onde a altitude',
+                heroTitle2: 'encontra a',
+                heroTitleHighlight: 'distinção',
+                heroSubtitle: 'Uma residência de <span class="font-semibold text-primary">171 m²</span> totalmente mobiliada e equipada, projetada para aqueles que entendem que o lar é também uma declaração de princípios.',
+                ctaVisit: 'Solicitar Visita Privada',
+                ctaContact: 'Contatar Agora',
+
+                // Stats
+                statsSurface: 'Superfície Total',
+                statsBedrooms: 'Quartos',
+                statsBathrooms: 'Banheiros Completos',
+                statsLocation: 'Vista Panorâmica',
+                statsFloor: 'Andar Alto',
+
+                // Lifestyle Section
+                lifestyleTag: 'A Arte de Residir',
+                lifestyleTitle: 'Um espaço que reflete sua trajetória',
+                lifestylePara1: 'No coração da zona diplomática de La Paz, esta residência oferece muito mais do que metros quadrados: proporciona um cenário adequado à vida daqueles que representam, lideram e constroem em nível internacional.',
+                lifestylePara2: '171 metros quadrados de amplitude, luz natural abundante e uma atmosfera de serenidade que convida tanto ao trabalho concentrado quanto ao descanso genuíno. O apartamento é entregue totalmente mobiliado e equipado com tudo o necessário para se mudar imediatamente, desde móveis de qualidade até louças e utensílios de cozinha.',
+
+                // Furnished Section
+                furnishedTag: 'Pronto para Morar',
+                furnishedTitle: 'Totalmente Mobiliado e Equipado',
+                furnishedSubtitle: 'Cada detalhe foi cuidadosamente selecionado para oferecer uma experiência de luxo imediata',
+                furnishedCard1Title: 'Mobiliário de Qualidade',
+                furnishedCard1Text: 'Sala de estar completa, sala de jantar elegante, escrivaninha executiva, camas premium e armários espaçosos. Todo o mobiliário necessário para uma vida confortável e distinta.',
+                furnishedCard2Title: 'Cozinha Totalmente Equipada',
+                furnishedCard2Text: 'Eletrodomésticos de última geração, utensílios de cozinha completos, louça fina, cristalaria e tudo o necessário para cozinhar desde o primeiro dia.',
+                furnishedCard3Title: 'Mudança Imediata',
+                furnishedCard3Text: 'Traga apenas sua bagagem pessoal. O apartamento está pronto para ser habitado sem necessidade de comprar móveis ou utensílios domésticos. Comece sua nova vida imediatamente.',
+
+                // Gallery
+                galleryTag: 'Galeria',
+                galleryTitle: 'Percorra cada espaço',
+
+                // CTA Section
+                ctaTag: 'Próximo Passo',
+                ctaTitle: 'Conheça pessoalmente esta residência',
+                ctaText: 'Algumas decisões requerem presença. Convidamos você a percorrer o apartamento em uma visita privada, sem compromisso, no horário que melhor se ajuste à sua agenda. Nossa equipe estará disponível para responder suas perguntas e fornecer todas as informações adicionais que você precisar.',
+                ctaWhatsApp: 'Solicitar Visita por WhatsApp',
+                ctaCall: 'Ligar Diretamente',
+                ctaFeature1: 'Resposta em menos de 24 horas',
+                ctaFeature2: 'Visita privada e confidencial',
+
+                // Footer
+                footerEmail: 'E-mail',
+                footerDisclaimer: 'Todas as imagens correspondem ao imóvel real. Disponibilidade sujeita a confirmação.',
+
+                // Spaces Detail
+                spacesTag: 'Distribuição e Qualidade',
+                spacesTitle: 'Espaços pensados para o bem-estar',
+
+                // Comfort Section
+                comfortTag: 'Conforto e Funcionalidade',
+                comfortTitle: 'Climatização e isolamento de primeiro nível',
+
+                // Building Amenities
+                buildingTag: 'Torres del Poeta',
+                buildingTitle: 'Um edifício que simplifica sua vida',
+                buildingSubtitle: 'Residir em Torres del Poeta significa acessar uma infraestrutura completa sem necessidade de deslocamentos desnecessários.',
+
+                // Location
+                locationTag: 'Localização Estratégica',
+                locationTitle: 'No epicentro da vida diplomática',
+
+                // Ideal Profile
+                profileTag: 'Perfil do Residente',
+                profileTitle: 'Uma residência para quem exige excelência',
+
+                heroPrice: 'Bs. 10,000',
+                heroPriceUnit: '/mês',
+                urgencyBadge: 'Disponibilidade Imediata',
+
+                pricingTag: 'Investimento Mensal',
+                pricingTitle: 'Tudo incluído, sem surpresas',
+                pricingLabel: 'Aluguel mensal',
+                pricingValue: 'Bs. 10,000',
+                pricingPeriod: '/mês',
+                pricingNote: 'Completamente mobiliado e equipado',
+                pricingItem1: 'Mobiliário completo',
+                pricingItem2: 'Eletrodomésticos',
+                pricingItem3: 'Louça e utensílios',
+                pricingItem4: 'Aquecimento central',
+                pricingItem5: 'Segurança 24/7',
+                pricingItem6: 'Disponibilidade imediata',
+                pricingCTA: 'Verificar Disponibilidade',
+
+                trust1: 'Imagens Reais',
+                trust1Sub: 'Fotos do imóvel atual',
+                trust2: 'Resposta Rápida',
+                trust2Sub: 'Menos de 24 horas',
+                trust3: 'Sem Intermediários',
+                trust3Sub: 'Contato direto',
+                trust4: 'Visita Sem Compromisso',
+                trust4Sub: 'Visite pessoalmente',
+
+                stickyPrice: 'Bs. 10,000',
+                stickyLabel: 'Mobiliado e equipado',
+                stickyCTA: 'Consultar'
+            }
+        };
+
+        // Language system
+        let currentLang = localStorage.getItem('language') || 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            updatePageLanguage();
+            updateLanguageButtons();
+        }
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (t[key]) {
+                    element.innerHTML = t[key];
+                }
+            });
+
+            // Update document title and meta
+            const titles = {
+                es: 'Torres del Poeta - Residencia Premium Amoblada en Av. Arce | La Paz, Bolivia',
+                en: 'Torres del Poeta - Fully Furnished Premium Residence on Av. Arce | La Paz, Bolivia',
+                fr: 'Torres del Poeta - Résidence Premium Meublée sur Av. Arce | La Paz, Bolivie',
+                pt: 'Torres del Poeta - Residência Premium Mobiliada na Av. Arce | La Paz, Bolívia'
+            };
+            document.title = titles[currentLang];
+        }
+
+        function updateLanguageButtons() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const lang = btn.getAttribute('data-lang');
+                if (lang === currentLang) {
+                    btn.classList.add('font-bold', 'text-primary');
+                    btn.classList.remove('opacity-60');
+                } else {
+                    btn.classList.remove('font-bold', 'text-primary');
+                    btn.classList.add('opacity-60');
+                }
+            });
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageLanguage();
+            updateLanguageButtons();
+        });
+    </script>
+
     <!-- Carousel JavaScript -->
     <script>
         const carousel = {
             currentSlide: 0,
-            totalSlides: 7,
+            totalSlides: 8,
             autoPlayInterval: null,
 
             init() {
@@ -707,7 +1819,7 @@
             },
 
             startAutoPlay() {
-                this.autoPlayInterval = setInterval(() => this.nextSlide(), 6000);
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), 15000);
 
                 // Pause on hover
                 const carouselEl = document.querySelector('.carousel');
@@ -745,6 +1857,95 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => carousel.init());
+    </script>
+
+    <!-- Lightbox JavaScript -->
+    <script>
+        const galleryImages = [];
+        let currentLightboxIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Collect all gallery images and make them clickable
+            const gallerySection = document.querySelector('section:has([data-i18n="galleryTag"])');
+            if (gallerySection) {
+                const imgs = gallerySection.querySelectorAll('img');
+                imgs.forEach((img, index) => {
+                    galleryImages.push(img.src);
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', () => openLightbox(index));
+                });
+            }
+        });
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const img = document.getElementById('lightboxImg');
+            const counter = document.getElementById('lightboxCounter');
+            img.src = galleryImages[index];
+            counter.textContent = `${index + 1} / ${galleryImages.length}`;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function lightboxNext() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+            openLightbox(currentLightboxIndex);
+        }
+
+        function lightboxPrev() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+            openLightbox(currentLightboxIndex);
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') lightboxNext();
+            if (e.key === 'ArrowLeft') lightboxPrev();
+        });
+    </script>
+
+    <!-- Scroll Reveal + Sticky CTA JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add reveal class to main sections
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach((s, i) => {
+                if (i > 0) s.classList.add('reveal'); // Skip hero
+            });
+
+            // IntersectionObserver for scroll reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Sticky CTA bar (mobile) - show after scrolling past hero
+            const stickyCTA = document.getElementById('stickyCTA');
+            const heroSection = document.querySelector('main > section:first-child');
+            if (stickyCTA && heroSection) {
+                const stickyObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            stickyCTA.classList.add('visible');
+                        } else {
+                            stickyCTA.classList.remove('visible');
+                        }
+                    });
+                }, { threshold: 0 });
+                stickyObserver.observe(heroSection);
+            }
+        });
     </script>
 </body>
 
