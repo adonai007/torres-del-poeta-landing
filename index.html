@@ -10,10 +10,10 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Torres del Poeta - Residencia Premium 171 m² | Bs. 10,000/mes">
+    <meta property="og:title" content="Torres del Poeta - Residencia Premium 171 m² | $1,500 USD/mes">
     <meta property="og:description"
         content="Residencia de lujo completamente amoblada en la zona diplomática de La Paz. 4 dormitorios, 4 baños, calefacción, seguridad 24/7. Disponibilidad inmediata.">
-    <meta property="og:image" content="images/hd/hd2_amoblado/sala1.jpg">
+    <meta property="og:image" content="images/hd/hd2_amoblado/winers/living_1_photo_2026-03-01_22-20-24.jpg">
     <meta property="og:locale" content="es_BO">
 
     <!-- Schema.org structured data -->
@@ -27,7 +27,7 @@
       "numberOfBathroomsTotal": 4,
       "floorSize": {"@type": "QuantitativeValue", "value": 171, "unitCode": "MTK"},
       "address": {"@type": "PostalAddress", "streetAddress": "Avenida Arce", "addressLocality": "La Paz", "addressCountry": "BO"},
-      "offers": {"@type": "Offer", "price": "10000", "priceCurrency": "BOB", "availability": "https://schema.org/InStock"}
+      "offers": {"@type": "Offer", "price": "1500", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
     }
     </script>
 
@@ -95,9 +95,9 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-            /* Transición muy suave */
+            transition: opacity 0.8s ease-in-out;
             z-index: 1;
+            will-change: opacity;
         }
 
         .carousel-slide.active {
@@ -423,6 +423,97 @@
                 transform: scale(1);
             }
         }
+
+        /* Gallery image overlay with label */
+        .gallery-item .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover .gallery-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated number counter */
+        .count-animated {
+            transition: all 0.6s ease-out;
+        }
+
+        /* Value badge pulse */
+        @keyframes valuePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .value-badge {
+            animation: valuePulse 3s ease-in-out infinite;
+        }
+
+        /* Parallax subtle effect on hero */
+        .hero-parallax {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        /* Enhanced button ripple */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10);
+            opacity: 0;
+            transition: transform 0.5s, opacity 0.8s;
+        }
+
+        .btn-ripple:active::after {
+            transform: scale(0);
+            opacity: 1;
+            transition: 0s;
+        }
+
+        /* Pricing card enhanced shadow */
+        .pricing-card-premium {
+            box-shadow: 0 25px 60px rgba(197, 160, 89, 0.15), 0 10px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card-premium:hover {
+            box-shadow: 0 30px 70px rgba(197, 160, 89, 0.25), 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        /* Floating animation for decorative elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -465,53 +556,53 @@
         <section class="relative">
             <div class="carousel h-[75vh] min-h-[550px] max-h-[750px]">
                 <div class="carousel-inner h-full" id="carouselInner">
-                    <!-- Slide 1 - Sala de Estar -->
+                    <!-- Slide 1 - Vista Nocturna La Paz -->
                     <div class="carousel-slide active">
-                        <img src="images/hd/hd2_amoblado/sala1.jpg"
-                            alt="Sala de estar amoblada con sofás elegantes y decoración moderna" loading="eager">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <img src="images/hd/hd2_amoblado/winers/1_2_portada1_photo_2026-03-01_22-12-40.jpg"
+                            alt="Vista nocturna panorámica de La Paz desde Torres del Poeta" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
-                    <!-- Slide 2 - Cocina Equipada -->
+                    <!-- Slide 2 - Sala de Estar -->
                     <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/cocina.jpg"
+                        <img src="images/hd/hd2_amoblado/winers/living_1_photo_2026-03-01_22-20-24.jpg"
+                            alt="Sala de estar amoblada con sofás elegantes y calefacción" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+                    </div>
+                    <!-- Slide 3 - Vista Diurna La Paz -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/winers/1_portada_3_photo_2026-03-01_22-13-26.jpg"
+                            alt="Vista panorámica diurna de La Paz y montañas desde Torres del Poeta" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+                    </div>
+                    <!-- Slide 4 - Cocina Equipada -->
+                    <div class="carousel-slide">
+                        <img src="images/hd/hd2_amoblado/winers/cocina_1_ photo_2026-03-01_22-27-54.jpg"
                             alt="Cocina totalmente equipada con electrodomésticos y acabados premium" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
-                    <!-- Slide 3 - Suite Principal -->
+                    <!-- Slide 5 - Dormitorio Principal -->
                     <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/suite1_2.jpg"
-                            alt="Dormitorio suite principal con mobiliario de lujo" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <img src="images/hd/hd2_amoblado/winers/dormitorio_2_photo_2026-03-01_22-31-59.jpg"
+                            alt="Dormitorio suite principal con cama doble y baño privado" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
-                    <!-- Slide 4 - Área de Estar -->
+                    <!-- Slide 6 - Vista Nocturna Vibrante -->
                     <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/sala5.jpg"
-                            alt="Espacio de estar amplio con iluminación natural" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <img src="images/hd/hd2_amoblado/airbnb/portada2_photo_2026-03-01_22-13-10.jpg"
+                            alt="Vista nocturna vibrante de la ciudad de La Paz" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
-                    <!-- Slide 5 - Escritorio/Estudio -->
+                    <!-- Slide 7 - Comedor y Living -->
                     <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/escritorio1.jpg"
-                            alt="Área de escritorio para trabajo remoto o estudio" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <img src="images/hd/hd2_amoblado/airbnb/living_4_photo_2026-03-01_22-24-13.jpg"
+                            alt="Comedor amplio con mesa familiar y vitrina de cristalería" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
-                    <!-- Slide 6 - Comedor y Cocina -->
+                    <!-- Slide 8 - Cocina Detalle -->
                     <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/cocina3.jpg" alt="Área de comedor integrada con cocina moderna"
-                            loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
-                    </div>
-                    <!-- Slide 7 - Vista General Sala -->
-                    <div class="carousel-slide">
-                        <img src="images/hd/hd2_amoblado/sala7.jpg"
-                            alt="Vista general de la sala de estar completamente amoblada" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
-                    </div>
-                    <!-- Slide 8 - Vista Nocturna -->
-                    <div class="carousel-slide">
-                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
-                            loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+                        <img src="images/hd/hd2_amoblado/airbnb/cocina_2_photo_2026-03-01_22-28-06.jpg"
+                            alt="Cocina moderna con iluminación LED y acabados premium" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
                     </div>
                 </div>
 
@@ -552,11 +643,12 @@
                                 data-i18n="heroTitleHighlight">distinción</span>
                         </h1>
                         <!-- Price visible in hero -->
-                        <div class="flex items-baseline gap-3 mb-4">
-                            <span class="font-display text-3xl md:text-5xl font-bold text-primary price-glow"
-                                data-i18n="heroPrice">Bs. 10,000</span>
-                            <span class="text-white/70 text-base md:text-lg" data-i18n="heroPriceUnit">/mes</span>
+                        <div class="flex items-baseline gap-3 mb-2">
+                            <span class="font-display text-4xl md:text-6xl font-bold text-primary price-glow"
+                                data-i18n="heroPrice">$1,500</span>
+                            <span class="text-white/70 text-base md:text-lg" data-i18n="heroPriceUnit">USD/mes</span>
                         </div>
+                        <p class="text-white/50 text-sm mb-4" data-i18n="heroPriceNote">Solo $8.77/m² - Amoblado y equipado</p>
                         <p class="text-white text-base md:text-xl max-w-3xl mb-8 leading-relaxed font-light"
                             style="text-shadow: 0 2px 15px rgba(0,0,0,0.9), 0 1px 8px rgba(0,0,0,0.7);"
                             data-i18n="heroSubtitle">
@@ -960,111 +1052,86 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <!-- Sala de Estar -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <img src="images/hd/hd2_amoblado/sala1.jpg" alt="Sala de estar principal amoblada"
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/winers/living_1_photo_2026-03-01_22-20-24.jpg" alt="Sala de estar principal amoblada con sofás y TV"
                             class="w-full h-full object-cover image-hover-zoom">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
+                        <div class="gallery-label">Sala de Estar</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <img src="images/hd/hd2_amoblado/sala4.jpg" alt="Vista de sala con sofás y decoración"
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/living__2_photo_2026-03-01_22-20-36.jpg" alt="Vista de sala con sofás y decoración"
                             class="w-full h-full object-cover image-hover-zoom">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
+                        <div class="gallery-label">Living</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/sala8.jpg" alt="Área de estar con muebles modernos"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/living_3_photo_2026-03-01_22-24-05.jpg" alt="Living con vista al comedor y biombo decorativo"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Comedor</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/sala9.jpg" alt="Espacio de living completamente equipado"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/living_4_photo_2026-03-01_22-24-13.jpg" alt="Comedor amplio con mesa familiar y vitrina"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Comedor Familiar</div>
                     </div>
 
                     <!-- Cocina -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/cocina1.jpg" alt="Cocina equipada con electrodomésticos"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/winers/cocina_1_ photo_2026-03-01_22-27-54.jpg" alt="Cocina equipada con electrodomésticos modernos"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Cocina Equipada</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/cocina2.jpg" alt="Área de cocina con barra"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/cocina_2_photo_2026-03-01_22-28-06.jpg" alt="Cocina con iluminación LED y gabinetes de madera"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Cocina Premium</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/cocina4.jpg" alt="Cocina moderna con alacenas"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/cocina7.jpg" alt="Vista completa de cocina integral"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/cocina_3_photo_2026-03-01_22-28-13.jpg" alt="Detalle de mesón de granito y cocina premium"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Mesón de Granito</div>
                     </div>
 
-                    <!-- Utensilios y Detalles -->
+                    <!-- Dormitorios -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/utensilios2.jpg" alt="Utensilios de cocina incluidos"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/winers/dormitorio_2_photo_2026-03-01_22-31-59.jpg" alt="Dormitorio suite con cama doble y baño privado"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Suite Principal</div>
                     </div>
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/vitrina.jpg" alt="Vitrina con vajilla y cristalería"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/vitrina2.jpg" alt="Detalle de vitrina decorativa"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Escritorio/Estudio -->
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/escriotrio2.jpg" alt="Área de escritorio equipada para trabajo"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Lavandería -->
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/lavanderia1.jpg" alt="Área de lavandería con lavadora"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Suite -->
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/suite1_2.jpg" alt="Dormitorio suite principal"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/dormitorio_1_photo_2026-03-01_22-31-47.jpg" alt="Dormitorio con cama doble, lámparas y espejos"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Dormitorio</div>
                     </div>
 
                     <!-- Baño -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/hd/hd2_amoblado/baño_fam.jpg" alt="Baño completo con tina"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Sala destacada - ocupa 2 columnas -->
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity md:col-span-2">
-                        <img src="images/hd/hd2_amoblado/sala2.jpg" alt="Vista panorámica de sala amoblada"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="images/hd/hd2_amoblado/airbnb/baño_familiar_1_photo_2026-03-01_22-35-08.jpg" alt="Baño familiar completo con ducha y ventilación natural"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Baño Familiar</div>
                     </div>
 
                     <!-- Vista Nocturna de La Paz - ocupa 2 columnas -->
                     <div
-                        class="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity md:col-span-2">
-                        <img src="images/hd/HD7.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
-                            class="w-full h-full object-cover">
+                        class="gallery-item aspect-[2/1] rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300 md:col-span-2">
+                        <img src="images/hd/hd2_amoblado/winers/1_2_portada1_photo_2026-03-01_22-12-40.jpg" alt="Vista nocturna panorámica de La Paz desde Torres del Poeta"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Vista Nocturna de La Paz</div>
+                    </div>
+
+                    <!-- Vista Diurna de La Paz - ocupa 2 columnas -->
+                    <div
+                        class="gallery-item aspect-[2/1] rounded-2xl overflow-hidden cursor-pointer group relative shadow-lg hover:shadow-2xl transition-all duration-300 md:col-span-2">
+                        <img src="images/hd/hd2_amoblado/winers/1_portada_3_photo_2026-03-01_22-13-26.jpg" alt="Vista panorámica diurna de La Paz con montañas"
+                            class="w-full h-full object-cover image-hover-zoom">
+                        <div class="gallery-label">Vista Panorámica Diurna</div>
                     </div>
                 </div>
             </div>
@@ -1082,16 +1149,20 @@
                 </div>
 
                 <div class="max-w-xl mx-auto">
-                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-primary/20 relative">
+                    <div class="pricing-card-premium bg-white rounded-3xl overflow-hidden border border-primary/20 relative">
                         <!-- Gold accent top -->
                         <div class="h-2 bg-gradient-to-r from-primary via-yellow-400 to-primary shimmer"></div>
                         <div class="p-10 text-center">
+                            <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+                                <span class="material-symbols-outlined text-lg">trending_down</span>
+                                <span data-i18n="pricingBadge">Solo $8.77/m² mensual</span>
+                            </div>
                             <p class="text-sm uppercase tracking-[0.2em] text-slate-500 mb-2" data-i18n="pricingLabel">
                                 Alquiler mensual</p>
                             <div class="flex items-baseline justify-center gap-2 mb-2">
                                 <span class="font-display text-6xl md:text-7xl font-bold text-slate-900 price-glow"
-                                    data-i18n="pricingValue">Bs. 10,000</span>
-                                <span class="text-2xl text-slate-400" data-i18n="pricingPeriod">/mes</span>
+                                    data-i18n="pricingValue">$1,500</span>
+                                <span class="text-2xl text-slate-400" data-i18n="pricingPeriod">USD/mes</span>
                             </div>
                             <p class="text-slate-500 mb-8" data-i18n="pricingNote">Completamente amoblado y equipado</p>
 
@@ -1127,7 +1198,7 @@
                                 </div>
                             </div>
 
-                            <a href="https://wa.me/59172004767?text=Buenos%20d%C3%ADas%2C%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta%20(Bs.%2010%2C000%2Fmes).%20%C2%BFPodr%C3%ADa%20coordinar%20una%20visita%3F"
+                            <a href="https://wa.me/59172004767?text=Buenos%20d%C3%ADas%2C%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta%20(%241%2C500%20USD%2Fmes).%20%C2%BFPodr%C3%ADa%20coordinar%20una%20visita%3F"
                                 target="_blank"
                                 class="btn-primary w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary-dark text-white px-8 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-primary/40 hover:scale-[1.02]">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -1241,8 +1312,8 @@
     <div class="sticky-cta-bar" id="stickyCTA">
         <div class="flex items-center justify-between px-4 py-3">
             <div>
-                <p class="font-display text-lg font-bold text-slate-900" data-i18n="stickyPrice">Bs. 10,000<span
-                        class="text-sm font-normal text-slate-500">/mes</span></p>
+                <p class="font-display text-lg font-bold text-slate-900" data-i18n="stickyPrice">$1,500<span
+                        class="text-sm font-normal text-slate-500"> USD/mes</span></p>
                 <p class="text-xs text-slate-500" data-i18n="stickyLabel">Amoblado y equipado</p>
             </div>
             <a href="https://wa.me/59172004767?text=Hola%2C%20me%20interesa%20el%20departamento%20en%20Torres%20del%20Poeta."
@@ -1360,16 +1431,18 @@
                 profileTitle: 'Una residencia para quienes exigen excelencia',
 
                 // Urgency & Price (Hero)
-                heroPrice: 'Bs. 10,000',
-                heroPriceUnit: '/mes',
+                heroPrice: '$1,500',
+                heroPriceUnit: 'USD/mes',
+                heroPriceNote: 'Solo $8.77/m² - Amoblado y equipado',
                 urgencyBadge: 'Disponibilidad Inmediata',
 
                 // Pricing Section
                 pricingTag: 'Inversión Mensual',
                 pricingTitle: 'Todo incluido, sin sorpresas',
+                pricingBadge: 'Solo $8.77/m² mensual',
                 pricingLabel: 'Alquiler mensual',
-                pricingValue: 'Bs. 10,000',
-                pricingPeriod: '/mes',
+                pricingValue: '$1,500',
+                pricingPeriod: 'USD/mes',
                 pricingNote: 'Completamente amoblado y equipado',
                 pricingItem1: 'Mobiliario completo',
                 pricingItem2: 'Electrodomésticos',
@@ -1390,7 +1463,7 @@
                 trust4Sub: 'Recórralo personalmente',
 
                 // Sticky CTA
-                stickyPrice: 'Bs. 10,000',
+                stickyPrice: '$1,500<span class="text-sm font-normal text-slate-500"> USD/mes</span>',
                 stickyLabel: 'Amoblado y equipado',
                 stickyCTA: 'Consultar'
             },
@@ -1470,15 +1543,17 @@
                 profileTag: 'Resident Profile',
                 profileTitle: 'A residence for those who demand excellence',
 
-                heroPrice: 'Bs. 10,000',
-                heroPriceUnit: '/month',
+                heroPrice: '$1,500',
+                heroPriceUnit: 'USD/month',
+                heroPriceNote: 'Only $8.77/m² - Furnished and equipped',
                 urgencyBadge: 'Available Now',
 
                 pricingTag: 'Monthly Investment',
                 pricingTitle: 'All-inclusive, no surprises',
+                pricingBadge: 'Only $8.77/m² monthly',
                 pricingLabel: 'Monthly rent',
-                pricingValue: 'Bs. 10,000',
-                pricingPeriod: '/month',
+                pricingValue: '$1,500',
+                pricingPeriod: 'USD/month',
                 pricingNote: 'Fully furnished and equipped',
                 pricingItem1: 'Complete furniture',
                 pricingItem2: 'Appliances',
@@ -1497,7 +1572,7 @@
                 trust4: 'No-Obligation Visit',
                 trust4Sub: 'Tour it personally',
 
-                stickyPrice: 'Bs. 10,000',
+                stickyPrice: '$1,500<span class="text-sm font-normal text-slate-500"> USD/month</span>',
                 stickyLabel: 'Furnished and equipped',
                 stickyCTA: 'Inquire'
             },
@@ -1577,15 +1652,17 @@
                 profileTag: 'Profil du Résident',
                 profileTitle: 'Une résidence pour ceux qui exigent l\'excellence',
 
-                heroPrice: 'Bs. 10,000',
-                heroPriceUnit: '/mois',
+                heroPrice: '$1,500',
+                heroPriceUnit: 'USD/mois',
+                heroPriceNote: 'Seulement $8.77/m² - Meublé et équipé',
                 urgencyBadge: 'Disponibilité Immédiate',
 
                 pricingTag: 'Investissement Mensuel',
                 pricingTitle: 'Tout compris, sans surprises',
+                pricingBadge: 'Seulement $8.77/m² mensuel',
                 pricingLabel: 'Loyer mensuel',
-                pricingValue: 'Bs. 10,000',
-                pricingPeriod: '/mois',
+                pricingValue: '$1,500',
+                pricingPeriod: 'USD/mois',
                 pricingNote: 'Entièrement meublé et équipé',
                 pricingItem1: 'Mobilier complet',
                 pricingItem2: 'Électroménagers',
@@ -1604,7 +1681,7 @@
                 trust4: 'Visite Sans Engagement',
                 trust4Sub: 'Visitez-le personnellement',
 
-                stickyPrice: 'Bs. 10,000',
+                stickyPrice: '$1,500<span class="text-sm font-normal text-slate-500"> USD/mois</span>',
                 stickyLabel: 'Meublé et équipé',
                 stickyCTA: 'Consulter'
             },
@@ -1684,15 +1761,17 @@
                 profileTag: 'Perfil do Residente',
                 profileTitle: 'Uma residência para quem exige excelência',
 
-                heroPrice: 'Bs. 10,000',
-                heroPriceUnit: '/mês',
+                heroPrice: '$1,500',
+                heroPriceUnit: 'USD/mês',
+                heroPriceNote: 'Apenas $8.77/m² - Mobiliado e equipado',
                 urgencyBadge: 'Disponibilidade Imediata',
 
                 pricingTag: 'Investimento Mensal',
                 pricingTitle: 'Tudo incluído, sem surpresas',
+                pricingBadge: 'Apenas $8.77/m² mensal',
                 pricingLabel: 'Aluguel mensal',
-                pricingValue: 'Bs. 10,000',
-                pricingPeriod: '/mês',
+                pricingValue: '$1,500',
+                pricingPeriod: 'USD/mês',
                 pricingNote: 'Completamente mobiliado e equipado',
                 pricingItem1: 'Mobiliário completo',
                 pricingItem2: 'Eletrodomésticos',
@@ -1711,7 +1790,7 @@
                 trust4: 'Visita Sem Compromisso',
                 trust4Sub: 'Visite pessoalmente',
 
-                stickyPrice: 'Bs. 10,000',
+                stickyPrice: '$1,500<span class="text-sm font-normal text-slate-500"> USD/mês</span>',
                 stickyLabel: 'Mobiliado e equipado',
                 stickyCTA: 'Consultar'
             }
